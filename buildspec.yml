@@ -5,12 +5,12 @@ phases:
         commands:
             - echo "Building docker Image"
             - docker build -t fibo-stress .
-            - echo $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_ID
-            - docker tag fibo-stress:latest $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_ID
-            - echo "Authenticating to AWS ECR"
-            - docker login -u "$REGISTRY_USERNAME" -p "$REGISTRY_PASSWORD" $IMAGE_REGISTRY
-            - echo "Pushing Image"
-            - docker push
+            - echo $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
+            # - docker tag fibo-stress:latest $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_ID
+            # - echo "Authenticating to AWS ECR"
+            # - docker login -u "$REGISTRY_USERNAME" -p "$REGISTRY_PASSWORD" $IMAGE_REGISTRY
+            #  - echo "Pushing Image"
+            #  - docker push
     post_build:
         commands:
             - echo "Build successfully completed"
