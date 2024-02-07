@@ -1,0 +1,19 @@
+version: 0.2
+
+env:
+    variables:
+	    IMAGE_REGISTRY: IMAGE_REGISTRY
+		REGISTRY_USERNAME: REGISTRY_USRNAME	
+		REGISTRY_PASSWORD: REGISTRY_PASSWORD
+phases:
+    build:
+        commands:
+            - echo "Building docker Image"
+            - docker build -t $IMAGE_REGISTRY/fibo-stress:latest .
+			- echo "Authenticating to AWS ECR"
+			- docker login -u "$REGISTRY_USRNAME" -p "$REGISTRY_PASSWORD" $IMAGE_REGISTRY
+			- echo "Pushing Image"
+			- docker push
+    post_build:
+        commands:
+		    - echo "Build successful"
