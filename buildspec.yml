@@ -10,6 +10,4 @@ phases:
             - docker login -u "$REGISTRY_USERNAME" -p "$REGISTRY_PASSWORD" $IMAGE_REGISTRY
             - echo "Pushing Image"
             - docker push $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
-    post_build:
-        commands:
             - echo "Build successfully completed"
