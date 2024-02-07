@@ -4,7 +4,8 @@ phases:
     build:
         commands:
             - echo "Building docker Image"
-            - docker build -t $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_ID .
+            - docker build -t fibo-stress .
+            - docker tag fibo-stress:latest $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_ID
             - echo "Authenticating to AWS ECR"
             - docker login -u "$REGISTRY_USERNAME" -p "$REGISTRY_PASSWORD" $IMAGE_REGISTRY
             - echo "Pushing Image"
