@@ -15,5 +15,4 @@ phases:
 
 artifacts:
     files:
-        - buildspec.yml
-        - scripts
+        - appspec.yml
