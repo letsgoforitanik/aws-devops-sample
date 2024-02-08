@@ -1,1 +1,7 @@
-echo my name is anik
+version: 0.0
+
+hooks:
+    BeforeInstall:
+        - location: scripts/before-install.sh
+    Install:
+        - location: scripts/install.sh
