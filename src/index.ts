@@ -16,5 +16,8 @@ app.get('/fib/:num', function (req, res) {
 });
 
 
+app.get('/author', (req, res) => res.send(`Author of this api is Aniruddha Banerjee`));
+
+
 const server = http.createServer(app);
 server.listen(3000, () => console.log(`Application is running on port 3000`));
