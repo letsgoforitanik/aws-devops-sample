@@ -3,7 +3,7 @@ version: 0.2
 phases:
     build:
         commands:
-            - echo "Building docker Image"
+            - echo "Building Docker Image"
             - docker build -t fibo-stress .
             - docker tag fibo-stress:latest $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
             - echo "Authenticating to AWS ECR"
@@ -11,12 +11,12 @@ phases:
             - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username "$REGISTRY_USERNAME" --password-stdin $IMAGE_REGISTRY
             - echo "Pushing Image"
             - docker push $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
-            - echo "Build successfully completed"
+            - echo "Build Successfully Completed"
 
     post_build:
         commands:
             - echo "Storing CodeBuild Build Number"
-            - aws ssm put-parameter --name "/fibo-stress/codebuild_build_number" --value "$CODEBUILD_BUILD_NUMBER" --type "String" --region ap-south-1
+            - aws ssm put-parameter --name "/fibo-stress/codebuild_build_number" --value "$CODEBUILD_BUILD_NUMBER" --type "String" --region ap-south-1 --overwrite
 
 artifacts:
     files:
