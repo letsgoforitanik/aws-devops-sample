@@ -1,5 +1,12 @@
 version: 0.2
 
+env:
+    parameter-store:
+        IMAGE_REGISTRY: /fibo-stress/image_registry_url
+        ACCESS_KEY: /fibo-stress/access_key
+        SECRET_ACCESS_KEY: /fibo-stress/secret_access_key
+        REGISTRY_USERNAME: /fibo-stress/registry_username
+
 phases:
     build:
         commands:
