@@ -5,5 +5,5 @@ os: linux
 hooks:
     BeforeInstall:
         - location: scripts/before-install.sh
-    Install:
+    AfterInstall:
         - location: scripts/install.sh
