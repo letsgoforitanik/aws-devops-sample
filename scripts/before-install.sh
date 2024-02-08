@@ -7,4 +7,4 @@
 
 #aws configure set aws_access_key_id "$ACCESS_KEY" && aws configure set aws_secret_access_key "$SECRET_ACCESS_KEY"
 #aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username "$REGISTRY_USERNAME" --password-stdin $IMAGE_REGISTRY
-docker pull 297436977708.dkr.ecr.ap-south-1.amazonaws.com/fibo-stress:latest
+docker pull public.ecr.aws/e2u5l6n6/fibo-stress:latest
