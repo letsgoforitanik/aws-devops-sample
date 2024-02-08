@@ -13,6 +13,11 @@ phases:
             - docker push $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
             - echo "Build successfully completed"
 
+    post_build:
+        commands:
+            - echo "Storing CodeBuild Build Number"
+            - aws ssm put-parameter --name "/fibo-stress/codebuild_build_number" --value "$CODEBUILD_BUILD_NUMBER" --type "String" --region ap-south-1
+
 artifacts:
     files:
         - ./appspec.yml
