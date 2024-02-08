@@ -4,14 +4,14 @@ phases:
     build:
         commands:
             - echo "Building docker Image"
-            #- docker build -t fibo-stress .
-            #- docker tag fibo-stress:latest $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
-            #- echo "Authenticating to AWS ECR"
-            # - aws configure set aws_access_key_id "$ACCESS_KEY" && aws configure set aws_secret_access_key "$SECRET_ACCESS_KEY"
-            #- aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username "$REGISTRY_USERNAME" --password-stdin $IMAGE_REGISTRY
-            # - echo "Pushing Image"
-            #- docker push $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
-            #- echo "Build successfully completed"
+            - docker build -t fibo-stress .
+            - docker tag fibo-stress:latest $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
+            - echo "Authenticating to AWS ECR"
+            - aws configure set aws_access_key_id "$ACCESS_KEY" && aws configure set aws_secret_access_key "$SECRET_ACCESS_KEY"
+            - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username "$REGISTRY_USERNAME" --password-stdin $IMAGE_REGISTRY
+            - echo "Pushing Image"
+            - docker push $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
+            - echo "Build successfully completed"
 
 artifacts:
     files:
