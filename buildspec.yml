@@ -3,7 +3,7 @@ version: 0.2
 phases:
     build:
         commands:
-            - echo "Building docker Images"
+            - echo "Building docker Image"
             #- docker build -t fibo-stress .
             #- docker tag fibo-stress:latest $IMAGE_REGISTRY/fibo-stress:$CODEBUILD_BUILD_NUMBER
             #- echo "Authenticating to AWS ECR"
